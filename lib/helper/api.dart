@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 
 class Api {
-  Future<dynamic> get({required String url, @required String? token}) async {
+  Future<dynamic> get({required String url, String? token}) async {
     Map<String, String> headers = {};
     if (token != null) {
       headers.addAll({
@@ -57,6 +57,7 @@ class Api {
         'Authorization': 'Bearer $token',
       });
     }
+    print('$url $body');
     http.Response response = await http.put(
       Uri.parse(url),
       body: body,
@@ -64,6 +65,7 @@ class Api {
     );
     if (response.statusCode == 200) {
       Map<String, dynamic> data = jsonDecode(response.body);
+      print(data);
       return data;
     } else {
       throw Exception(

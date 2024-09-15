@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                           crossAxisCount: 2,
                           crossAxisSpacing: 20,
                           mainAxisSpacing: 100,
-                          childAspectRatio: 1.3,
+                          childAspectRatio: 1,
                         ),
                         itemBuilder: (context, index) {
                           return CustomCard(
